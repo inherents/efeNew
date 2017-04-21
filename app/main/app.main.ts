@@ -3,6 +3,7 @@ import {  Router }  from '@angular/router';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import {AppLoginService,AppPermService} from "../appService/_base";
 import {AppSessionUtil} from "../appUtil/_base";
+import {loginDirective} from './loginDirective';
 
 let templateUrl='app/main/app.main.html';
 

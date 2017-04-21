@@ -28,6 +28,7 @@ import {
   UIListCellComponent,
   HtmlTemplatePipe,
   HtmlOutletDirective,
+  loginDirective,
   UIUploaderComponent,
   UIPagerComponent
 }  from './_base';
@@ -134,6 +135,7 @@ let rootRouter=RouterModule.forRoot([
     UIListCellComponent,
     HtmlTemplatePipe,
     HtmlOutletDirective,
+    loginDirective,
     UIUploaderComponent,
     UIPagerComponent
   ],

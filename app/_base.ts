@@ -15,7 +15,7 @@ import {balanceComponent} from './balance/app.balance';
 import {incomeComponent} from './income/app.income';
 import {cashFlowComponent} from './cashFlow/app.cashFlow';
 import {HtmlTemplatePipe} from "./appPie/htmlTemplatePie";
-import {HtmlOutletDirective,UIListComponent,UIListCellComponent,UIUploaderComponent,UIPagerComponent} from "./appDirective/_base";
+import {HtmlOutletDirective,loginDirective,UIListComponent,UIListCellComponent,UIUploaderComponent,UIPagerComponent} from "./appDirective/_base";
 
 
 
@@ -37,6 +37,7 @@ export {
   UIListCellComponent,
   HtmlTemplatePipe,
   HtmlOutletDirective,
+  loginDirective,
   UIUploaderComponent,
   UIPagerComponent
 };
