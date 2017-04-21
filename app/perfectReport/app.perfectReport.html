@@ -1,0 +1,215 @@
+<div *ngIf="applyBtn" class="widthEight">
+  <div class="perfectTop">完善报告</div>
+  <div class="pannel-raidus perfectTopBg">
+    <span>补全后可提升金融机构的信任度</span>
+  </div>
+  <div class="pannel-raidus borderLink marginTop20 activeBgs " style="height: 225px;width: 100%;">
+    <div class="perfectBorder" style="height: 32px; padding: 10px; line-height: 12px;">
+      <div class="perfectFontColor">合同签订</div>
+    </div>
+    <div style="height: 193px;">
+      <div class="row padding20">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <div class="perfectContract">
+              <img src="../../assets/img/corp/qiandinghetong.png">
+            </div>
+            <div class="perfectContractName">司机合同</div>
+          </div>
+          <div class="col-md-4">
+            <div class="perfectContract">
+              <img src="../../assets/img/corp/qiandinghetong.png">
+            </div>
+            <div class="perfectContractName">企业合同</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="marginTop20 borderLink activeBgs pannel-raidus" style="height: auto;width: 100%;">
+    <div class="perfectBorder" style="height: 32px; line-height: 12px; padding: 10px; ">
+      <div class="perfectFontColor">个人数据</div>
+    </div>
+    <div class="pannel-content">
+      <ul>
+        <li>
+          <label style="width: 20%">银行卡信息</label>
+          <button class="btn btn-primary" style="margin-left: 70%" (click)="bankIdCard()">查看</button>
+        </li>
+        <li>
+          <label style="width: 20%">驾驶证</label>
+          <button class="btn btn-primary" style="margin-left: 70%" (click)="driverLisence()">查看</button>
+        </li>
+        <li>
+          <label style="width: 20%">行驶证</label>
+          <button class="btn btn-primary" style="margin-left: 70%" (click)="runLisence()">查看</button>
+        </li>
+        <li>
+          <label style="width: 20%">个人信息</label>
+          <button class="btn btn-primary" style="margin-left: 70%" (click)="personalMsg()">查看</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="text-center" style="margin-top: 20px">
+    <button class="btn btn-primary">继续申请</button>
+    <button class="btn btn-primary">提交</button>
+  </div>
+</div>
+
+<div *ngIf="seeBankId">
+
+</div>
+
+<div *ngIf="seeDriverLisence">
+  <button class="btn btn-default" (click)="backApplyMsg()">返回</button>
+  <div class="pannel_apply pannel-raidus">
+    <div style="padding: 10px 20px; border-bottom: 1px solid #CDCACE;font-size: 20px">
+      <label>驾驶证</label>
+    </div>
+    <div class="pannel-content">
+      <ul>
+        <li>
+          <label style="width: 20%">初次领证日期</label>
+          <span style="width: 10%">2016-01-01</span>
+        </li>
+        <li>
+          <label style="width: 20%">准驾车型</label>
+          <span style="width: 10%">A1</span>
+        </li>
+        <li>
+          <label style="width: 20%">有效起始日期</label>
+          <span style="width: 10%">2016-12-12</span>
+        </li>
+        <li>
+          <label style="width: 20%">有效期限</label>
+          <span style="width: 10%">7年</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row" style="padding: 20px;margin-bottom: 50px">
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <div class="perfectContract">
+            <img src="../../assets/img/corp/qiandinghetong.png">
+          </div>
+          <div class="perfectContractName">驾驶证主页</div>
+        </div>
+        <div class="col-md-4">
+          <div class="perfectContract">
+            <img src="../../assets/img/corp/qiandinghetong.png">
+          </div>
+          <div class="perfectContractName">驾驶证副页</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="seeRunLisence">
+  <button class="btn btn-default" (click)="backApplyMsg()">返回</button>
+  <div class="pannel_apply pannel-raidus">
+    <div style="padding: 10px 20px; border-bottom: 1px solid #CDCACE;font-size: 20px">
+      <label>行驶证</label>
+    </div>
+    <div class="pannel-content">
+      <ul>
+        <li>
+          <label style="width: 20%">车牌号</label>
+          <span style="width: 10%">沪A-08s29</span>
+        </li>
+        <li>
+          <label style="width: 20%">车辆所有权</label>
+          <span style="width: 10%">自有</span>
+        </li>
+        <li>
+          <label style="width: 20%">车辆长度</label>
+          <span style="width: 10%">5.8米</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row" style="padding: 20px;">
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <div class="perfectContract">
+            <img src="../../assets/img/corp/qiandinghetong.png">
+          </div>
+          <div class="perfectContractName">行驶证主页</div>
+        </div>
+        <div class="col-md-4">
+          <div class="perfectContract">
+            <img src="../../assets/img/corp/qiandinghetong.png">
+          </div>
+          <div class="perfectContractName">行驶证副页</div>
+        </div>
+        <div class="col-md-4">
+          <div class="perfectContract">
+            <img src="../../assets/img/corp/qiandinghetong.png">
+          </div>
+          <div class="perfectContractName">机动车登记证</div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding: 20px;margin-bottom: 50px">
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <div class="perfectContract">
+            <img src="../../assets/img/corp/qiandinghetong.png">
+          </div>
+          <div class="perfectContractName">车辆确认函</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="seePersonalMsg">
+  <button class="btn btn-default" (click)="backApplyMsg()">返回</button>
+  <div class="pannel_apply pannel-raidus">
+    <div style="padding: 10px 20px; border-bottom: 1px solid #CDCACE;font-size: 20px">
+      <label>个人信息</label>
+    </div>
+    <div class="pannel-content">
+      <ul>
+        <li>
+          <label style="width: 20%">姓名</label>
+          <span style="width: 10%">张军红</span>
+        </li>
+        <li>
+          <label style="width: 20%">手机号</label>
+          <span style="width: 10%">18922210003</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row" style="padding: 20px;margin-bottom: 50px">
+      <div style="padding: 10px; margin-left: 22px">
+        <span>身份证正反面</span>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <div  class="perfectContract">
+            <img src="../../assets/img/corp/qiandinghetong.png">
+          </div>
+          <div class="perfectContractName">身份证正面</div>
+        </div>
+        <div class="col-md-4">
+          <div class="perfectContract">
+            <img src="../../assets/img/corp/qiandinghetong.png">
+          </div>
+          <div class="perfectContractName">身份证反面</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<uiList [list]="productList" [listContext]="this"></uiList>-->
+  <modal #myModal>
+    <modal-header [show-close]="true">
+      <h4 class="modal-title">I'm a modal!</h4>
+    </modal-header>
+    <modal-body>
+      企业尚未认证，请认证！
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+  </modal>
+</div>

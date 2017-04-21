@@ -1,0 +1,121 @@
+<div class="pannel">
+  <div class="pannel-top">
+    <strong><h3>企业认证</h3></strong>
+  </div>
+  <div class="pannel-content">
+    <ul>
+      <li>
+        <label>企业全称</label>
+        <span>{{company.corpName}}<img src="../../assets/img/corp/tijiao.png" style="margin-top: 18px;float:right"></span>
+      </li>
+      <li>
+        <label>法人代表</label>
+        <span>{{company.companyName}}<img src="../../assets/img/corp/tijiao.png" style="margin-top: 18px;float:right"></span>
+      </li>
+      <li>
+        <label>法人身份证号</label>
+        <span>{{company.idCard}}<img src="../../assets/img/corp/tijiao.png" style="margin-top: 18px;float:right"></span>
+      </li>
+      <li>
+        <label>所在地区</label>
+        <span>{{company.city}}<img src="../../assets/img/corp/tijiao.png" style="margin-top: 18px;float:right"></span>
+      </li>
+      <li>
+        <label>详细地址</label>
+        <span>{{company.address}}<img src="../../assets/img/corp/tijiao.png" style="margin-top: 18px;float:right"></span>
+      </li>
+      <li>
+        <label>统一社会信用代码</label>
+        <span>{{company.id}}<img src="../../assets/img/corp/tijiao.png" style="margin-top: 18px;float:right"></span>
+      </li>
+      <li>
+        <label>公司成立日期</label>
+        <span>{{company.createTime}}<img src="../../assets/img/corp/tijiao.png" style="margin-top: 18px;float:right"></span>
+      </li>
+      <li>
+        <label>注册资本（万元）</label>
+        <span><img src="../../assets/img/corp/bianji.png" (click)="editCapital()"><span style="float: right;">未提交</span></span>
+      </li>
+      <li>
+        <label>所属行业</label>
+        <span><img src="../../assets/img/corp/bianji.png"><span style="float: right;">未提交</span></span>
+      </li>
+    </ul>
+
+    <div class="row" style="margin-left: 0; margin-top: 30px;">
+      <label>查看及上传营业执照及开户许可证</label>
+      <div class="col-md-12" style="margin-top: 20px">
+        <div class="col-md-4">
+          <img src="../../assets/img/corp/tishirenzheng.png" class="companyImg" (click)="lookPic()">
+        </div>
+        <div class="col-md-4">
+          <img src="../../assets/img/corp/tishirenzheng.png" class="companyImg">
+        </div>
+        <div class="col-md-4">
+          <img src="../../assets/img/corp/tishirenzheng.png" class="companyImg">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin: 30px;">
+      <button class="btn btn-primary" (click)="onSubmit()">提交认证</button>
+    </div>
+  </div>
+</div>
+
+<modal #myModal style="margin-top: 200px">
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">修改注册资本</h4>
+  </modal-header>
+  <modal-body>
+    <form #myForm="ngForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-5" style="height: 35px;line-height: 35px">
+            <label>修改注册资本单位（万元）</label>
+          </div>
+          <div class="col-md-7">
+            <input class="form-control" type="text" name="username" [ngModel]="user.username"
+                   [ngClass]="username.valid == false?'borderRed':''" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" #username="ngModel">
+            <small [hidden]="username.valid" style="color:red">
+              请输出数字.
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-md-12">
+          <div class="col-md-5">
+          </div>
+          <div class="col-md-7">
+            <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">确定</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </modal-body>
+</modal>
+
+<modal #myModals style="margin-top: 200px">
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">保存成功</h4>
+  </modal-header>
+  <modal-body>
+    <div style="padding:20px 30px">
+      企业认证审核需一个工作日，请耐心等待！
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary" (click)="know()">知道了</button>
+    </div>
+  </modal-body>
+</modal>
+
+<modal #myModalImg style="margin-top: 200px">
+  <modal-body>
+    <img src="../../assets/img/ob/bg_login.png" style="width: 100%">
+  </modal-body>
+</modal>
+
+
+
+

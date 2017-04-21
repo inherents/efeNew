@@ -1,0 +1,450 @@
+/*客户数据报告*/
+.customerdata{
+    position: relative;
+}
+.customerdata .header-title{
+
+    /*position: fixed;*/
+    /*z-index: 10;*/
+}
+.customerdata .t-volumeBus{
+    /*float: left;*/
+    /*margin-left: 22em;*/
+    background: #fafafa;
+    border: 1px solid #c6e4f7;
+    color: #62b3e8;
+}
+.customerdata .t-upstreamCus{
+    /*float: left;*/
+    /*margin: 0 2em;*/
+    background: #fafafa;
+    border: 1px solid #c6e4f7;
+    color: #62b3e8;
+}
+.customerdata .t-activationModel{
+    /*float: left;*/
+    /*margin-right: 2em;*/
+    background: #fafafa;
+    border: 1px solid #c6e4f7;
+    color: #62b3e8;
+}
+.customerdata .data-content{
+    padding-top: 5em;
+}
+.customerdata .content-title{
+    font-size: 20px;
+    margin: 1em;
+}
+.customerdata .t-header,.coreenterinfo .t-header{
+    border: 1px solid #ddd;
+    padding: 0.8em;
+    text-align: center;
+    font-size: 13px;
+    background: #f1f1fa;
+    width:160px;
+}
+
+.coreEnterprise .t-header{
+    border: 1px solid #ddd;
+    padding: 0.4em;
+    text-align: center;
+    font-size: 13px;
+    background: #f1f1fa;
+    width:160px;
+}
+.coreEnterprise .order-month{
+    height: 300px;overflow-y: scroll;position: relative
+}
+.coreEnterprise .order-data{
+    height: 300px;overflow-y: scroll;
+}
+.coreEnterprise .order-data .table{
+    text-align: center;
+}
+.coreEnterprise .order-month table tbody tr{
+    cursor: pointer;
+}
+.coreEnterprise table tbody .cur{
+    background: #ccc;
+}
+.coreEnterprise .order-data table tbody tr td:last-child{
+    cursor: pointer;
+}
+
+.customerdata .t-content,.coreenterinfo .t-content{
+    border: 1px solid #ddd;
+    border-top: 0;
+    padding: 0.8em;
+    text-align: center;
+    font-size: 13px;
+}
+
+.coreEnterprise .t-content{
+    border: 1px solid #ddd;
+    border-top: 0;
+    padding: 0.4em;
+    text-align: center;
+    font-size: 13px;
+}
+.customerdata .mar-content{
+    margin-top: 2em;
+}
+.coreEnterprise  .table thead tr th{
+    text-align: center;
+}
+.customerdata .volumeBusEchart{
+    width: 100%;
+    height:300px;
+}
+.customerdata .upstreamEchart{
+    /*width: 500px;*/
+    height:600px;
+}
+.customerdata .text{
+    /*padding: .8em;*/
+    /*font-size: 13px;*/
+}
+.customerdata .volumeBusBar{
+    width: 1000px;
+    height:400px;
+}
+.customerdata  .activationModel table tr,
+.customerdata  .upstreamCus table tr{
+    cursor: pointer;
+}
+.customerdata  .activationModel .cur,
+.customerdata .upstreamCus .cur
+{
+    background: #CCCCCC;
+}
+
+.coreenterinfo .title{
+    text-align: center;
+}
+.coreenterinfo{
+    font-size: 13px;
+}
+.coreenterinfo .message table ,.coreenterinfo .message table  th{
+    text-align: center;
+}
+.coreenterinfo .merge table tbody tr:first-child td:first-child{
+    border-right: 1px solid #e1e6eb;
+    width: 20%;
+    text-align: center;
+    font-size: 18px;
+}
+.coreenterinfo .merge table tbody tr:first-child td:first-child+td{
+    width: 15%;
+}
+.coreenterinfo .query-map{
+
+}
+.coreenterinfo .query-map tbody tr{
+    cursor: pointer;
+}
+.coreenterinfo .query-map tbody  tr:hover{
+    background:#ddd ;
+}
+.coreenterinfo .query-map tbody .cur{
+    background: #ccc;
+}
+.coreenterinfo .baidumap{
+    width: 100%;
+    height:200px;
+    margin: 8px 0 20px;
+}
+.coreenterinfo
+.coreBillinfo{
+    font-size: 13px;
+}
+.coreBillinfo .t-content{
+    border: 1px solid #ddd;
+    border-top: 0;
+    padding: 0.4em;
+    text-align: center;
+    font-size: 13px;
+}
+.coreBillinfo .t-header{
+    border: 1px solid #ddd;
+    padding: 0.4em;
+    text-align: center;
+    font-size: 13px;
+    background: #f1f1fa;
+    width:120px;
+}
+.coreBillinfo .text{
+    padding: .2em;
+}
+.coreBillinfo .billtextcolor{
+    color: red;
+    font-size: 20px;
+}
+/*.coreBillDetails table th,.coreBillDetails table{*/
+/*text-align: center;*/
+/*}*/
+
+.coreBillinfo .isTrue-true{
+    background: url("../img/invoice_icon.png") no-repeat right 20%;
+    height: 5em;
+    background-size: 12%;
+    line-height: 5;
+}
+/*.coreBillinfo .image{*/
+/*height: 100px;*/
+/*width: 100px;*/
+/*overflow: hidden;*/
+/*position: relative;*/
+/*}*/
+/*.coreBillinfo .img{*/
+/*overflow: hidden;*/
+/*top:-50px;*/
+/*position: absolute;*/
+/*}*/
+.coreBillinfo a{
+    text-decoration: none;
+    color: #333;
+}
+.coreBillinfo a:link {
+    text-decoration: none;
+}
+.coreBillinfo a:visited {
+    text-decoration: none;
+}
+.coreBillinfo a:hover {
+    text-decoration: none;
+}
+.coreBillinfo a:active {
+    text-decoration: none;
+}
+
+.coreBillinfo table,.coreBillinfo table th{
+    text-align: center;
+}
+.coreBillinfo .info table tbody tr{
+    cursor: pointer;
+
+}
+.coreBillinfo  table tbody .cur{
+    background: #ccc;
+}
+.coreBillinfo .detail table tr {
+    cursor: pointer;
+}
+.customerdata .pad{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.customerdata .f-title{
+    font-size: 16px;
+    margin-bottom: 1em;
+}
+
+.customerdata .desc{
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.customerdata .th-table-font{
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1;
+    width: 256px;
+    padding: 0.8em;
+}
+.customerdata .td-table-font{
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+    width: 256px;
+    padding: 0.8em;
+}
+
+.customerdata .mar-title{
+    margin-top: 1em;
+    margin-left: 1.3em;
+}
+
+.customerdata .imp{
+    font-size: 22px;
+}
+.customerdata .imp-red{
+    color:red;
+    padding-top: .8em;
+}
+.customerdata .imp-blue{
+    color:blue;
+    padding-top: .8em;
+}
+
+.customerdata .tt-width{
+    width: 308px;
+}
+.customerdata .financialDataEchart{
+    height: 500px;
+    /*width: 1000px;*/
+}
+.customerdata .moduleFixed{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    z-index: 2;
+    border-bottom: 1px solid #c6e4f7;
+}
+.customerdata .moduleFixed2{
+    position: fixed;
+    top: 60px;
+    left: 198px;
+    z-index: 2000;
+    border-bottom: 1px solid #c6e4f7;
+}
+.customerdata .moFixed{
+    margin: 0;
+    padding:0;
+}
+.customerdata .moFixed li{
+    float: left;
+    width: 150px;
+    height: 48px;
+    background: #fafafa;
+    border: 1px solid #c6e4f7;
+    border-bottom: 0;
+    text-align: center;
+    line-height: 48px;
+    margin: 0 8px 0 0;
+    list-style-type: none;
+    transition: all 1s;
+}
+.customerdata .moFixed li.none{
+    margin: 0;
+    display: block;
+}
+
+.customerdata .moFixed li a{
+    color: #62b3e8;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 1s;
+}
+.customerdata .moFixed .cr{
+    background: #62b3e8;
+    transition: all 1s;
+}
+.customerdata .moFixed .cr a{
+    color: #fff;
+    font-size: 20px;
+    transition: all 1s;
+}
+.customerdata .moFixed a:link {
+    text-decoration: none;
+}
+.customerdata .moFixed a:visited {
+    text-decoration: none;
+}
+.customerdata .moFixed a:hover {
+    text-decoration: none;
+}
+.customerdata .moFixed a:active {
+    text-decoration: none;
+}
+.customerdata .table,.customerdata .table th{
+    text-align: center;
+}
+.customerdata .financial-table{
+    font-size:24px;
+    border:none;
+}
+.customerdata .financial-table tbody tr td{
+    border: none;
+}
+.customerdata .financial-table .tyle-color-0{
+    color: red;
+    font-size: 30px;
+}
+.customerdata .financial-table .tyle-color-1{
+    color: green;
+    font-size: 30px;
+}
+.customerdata  .crux table th:first-child{
+    width: 30%;
+}
+.customerdata  .crux table th:first-child+th{
+    width: 30%;
+}
+.customerdata  .crux table th:first-child+th+th{
+    width: 40%;
+}
+.customerdata .crux .tyle-color-0{
+    color: red;
+}
+.customerdata .crux .tyle-color-1{
+    color: green;
+}
+
+.customerdata .ul_capital{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin:0;
+}
+.customerdata .ul_capital li{
+    margin-right: 5px;
+    height: 30px;
+    line-height: 30px;
+    border:1px solid #ffffff;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 0px;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.customerdata .ul_capital li.cur{
+    background-color: #bce8f1;
+    color: #31708f;
+    border-color: #bce8f1;
+}
+
+.customerdata  .cust_photo
+{
+    display: flex; justify-content: space-around;
+    align-items: center;
+}
+.customerdata  .cust_photo ul{
+    width: 95%;display: flex; justify-content: space-around;padding: 0; list-style: none;
+}
+.customerdata  .cust_photo ul li{
+    width: 33%;
+    text-align: center;
+    height: 320px;
+}
+.customerdata  .cust_photo ul li img{
+    max-width: 100%;max-height: 100%;cursor: pointer;
+}
+.customerdata  .cust_photo  .pa{
+    width:2%;min-width: 20px;
+}
+.customerdata  .cust_photo  .pa .fa{
+    font-size: 20px;cursor: pointer;
+}
+
+
+.redresstable_ctrl table tbody td{
+    word-break: break-all;
+    word-wrap: break-word;
+    padding: 3px;
+}
+
+
+.redresstable_ctrl .bg_icon{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top:0;
+}
+.redresstable_ctrl .white
+{
+    color: #ffffff;
+}

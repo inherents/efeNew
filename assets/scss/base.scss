@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+$fontsize:16;
+$fontsize22:22;
+$fontsizetmp:16;
+$fontbase:14;
+$mwidth:60rem;
+
+.msection{
+    width: $mwidth;
+    margin:0 auto;
+}
+
+@mixin eh($h){
+  height: $h;
+  line-height: $h;
+}
+
+@mixin  br($r){
+  -webkit-border-radius:$r;
+  -moz-border-radius:$r;
+  border-radius:$r;
+}
+
+@mixin cneterbg($img){
+  background: url($img) no-repeat center center;
+}
+
+@mixin  mykf($name){
+  @keyframes #{$name}
+  {
+    @content;
+  }
+
+  @-webkit-keyframes  #{$name} /*Safari and Chrome*/
+  {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin includemykf($ani){
+  animation:$ani;
+  -webkit-animation:$ani;
+  -moz-animation: $ani;
+  -o-animation: $ani;
+}
+
+@mixin transition($p){
+  -webkit-transition: $p;
+  -moz-transition: $p;
+  -ms-transition: $p;
+  -o-transition: $p;
+  transition: $p;
+}
+
+@mixin transform($p){
+  -webkit-transform: $p;
+  -moz-transform: $p;
+  -ms-transform: $p;
+  -o-transform: $p;
+  transform: $p;
+}
+
+@function emScale($px_,$fs_){
+  @return $px_ / $fs_ * 1em;
+}
+
+@function  remScale($px_){
+  @return $px_ / $fontbase * 1rem;
+}
+
+.sec404{
+  color: #f8b700;
+  text-align: center;
+  .e1{
+    font-size: 9.5rem;
+  }
+  .e2{
+    font-size: 4.5rem;
+  }
+}
+
+a{
+  color:rgba(0,0,0,.7);
+
+  &:visited{
+    color: inherit;
+  }
+}
+

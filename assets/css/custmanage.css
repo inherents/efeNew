@@ -1,0 +1,26 @@
+.apply_info_collect .table td:nth-child(2n+1){
+    background-color: #F5F6FA;
+}
+.apply_info_collect .table td
+{
+    text-align: center;
+}
+.apply_info_collect_edit .table .uib-datepicker .uib-daypicker td{
+    padding:0 ;
+}
+
+.apply_info_collect_edit .table .uib-datepicker .uib-daypicker td:nth-child(2n+1){
+    background-color: transparent;
+
+}
+
+.apply_info_collect_edit .input-group-btn
+{
+    width: auto;
+}
+.apply_info_collect .table>tbody>tr>td:nth-child(2n+1){
+   width: 20%;
+}
+.apply_info_collect .table>tbody>tr>td:nth-child(2n){
+    width: 30%;
+}

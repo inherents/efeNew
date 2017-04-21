@@ -1,0 +1,182 @@
+<!--
+<div class="content-header-title">产品信息</div>
+<div class="content-main">
+  <div class="productmanage" >
+    <div class="form-inline">
+        <div class="input-group">
+          <div class="input-group-addon">关键字</div>
+          <input text="text" class="form-control" [(ngModel)]="filterText">
+        </div>
+    </div>
+   <uiList [list]="productList" [listContext]="this"></uiList>
+    <div uiPager [pager]="listPager"></div>
+  </div>
+  <modal #myModal>
+    <modal-header [show-close]="true">
+      <h4 class="modal-title">I'm a modal!</h4>
+    </modal-header>
+    <modal-body>
+      <p>企业尚未认证，请认证！</p>
+      <section uiUploader #myUploader [uploader]="uploader">
+
+      </section>
+    </modal-body>
+    <modal-footer [show-default-buttons]="false">
+      <button class="btn btn-success" (click)="myUploader.fileListSubmit()">上传所有</button>
+      <button class="btn btn-primary">确定上传</button>
+    </modal-footer>
+  </modal>
+</div>
+-->
+
+<div>
+  <div class="pannel pannel_product">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-2 pannel_product_corpname">
+          <img src="../../assets/img/corp/qiyexinxi.png">
+          <div>企业信息</div>
+        </div>
+        <div class="col-md-4 pannel_product_content">
+          <div class="proFirst">
+            <div class="proFirstBottom">上海银沛数据管理有限公司<span><img src="../../assets/img/corp/renzhneg.png">已认证</span></div>
+            <div class="proFirstBottom">
+              <div class="proFirstDiv">企业评级</div>
+              <div>
+                <img src="../../assets/img/corp/pingji.png">
+                <img src="../../assets/img/corp/pingji.png">
+                <img src="../../assets/img/corp/pingji.png">
+                <img src="../../assets/img/corp/pingji.png">
+                <img src="../../assets/img/corp/pingji.png">
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style="width: 40%;" class="proFirstDown">
+              <span>待签订合同:</span><br>
+              10份
+            </div>
+            <div  class="proFirstDown" style="width: 60%;">
+              <span>待还款账单金额:</span><br>
+              12800.00元
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="pro_loan"><img src="../../assets/img/corp/daikuanliucheng.png">贷款流程</div>
+          <div class="pro_loan_bg">
+            <div style="margin: 24px 0 0 49px;height: 5px;width:120px;background: #2EB3FA;position: absolute;"></div>
+            <div style="margin: 24px 0 0 218px;height: 5px;width:122px;background: #2EB3FA;position: absolute;"></div>
+          </div>
+          <div class="pro_status">
+            <div class="corpRz"><img src="../../assets/img/corp/1.png">企业认证<img src="../../assets/img/corp/liuchengtongguo.png"></div>
+            <div class="corpRz" style="text-align: center"><img src="../../assets/img/corp/2.png">评级<img src="../../assets/img/corp/liuchengtongguo.png"></div>
+            <div class="corpRz" style="text-align: right"><img src="../../assets/img/corp/3.png">产品匹配<img src="../../assets/img/corp/liuchengtongguo.png"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pannel_product" style="margin-top: 40px" *ngIf="quickUpShow">
+    <div class="proDownLeft">
+      <div class="proDownLeft_top">
+        <label>产品匹配</label>
+      </div>
+      <div style="padding: 20px 50px">
+        <div style="color: #212121; font-size: 16px">恒丰银行-杭州分行-恒福通</div>
+        <div style="margin: 20px 0;"><img src="../../assets/img/corp/chanpinpipei.png"></div>
+        <div style="color: #4a4a4a;">贷款利率：12%</div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-success" (click)="quickApply()">立即申请</button>
+      </div>
+    </div>
+    <div class="proDownLeft" style="width: 60%;margin-left: 2%;float: left">
+      <div class="proDownLeft_top">
+        <label>交易额度统计</label>
+      </div>
+      <div class="proDownRight">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="proDownRight_content">
+              <div class="proDownRight_contentOne">可申请额度</div>
+              <div class="proDownRight_contentTwo"><label>3.334.223.03</label></div>
+              <div class="proDownRight_contentThree">
+              <span>
+                若贵企业完善财务报表、资金流水、税控盘发票提交，可申请额度将会提升！
+              </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="proDownRight_content">
+              <div class="proDownRight_contentOne">可申请额度</div>
+              <div class="proDownRight_contentTwo"><label>3.334.223.03</label></div>
+              <div class="proDownRight_contentThree">
+              <span>
+                若贵企业完善财务报表、资金流水、税控盘发票提交，可申请额度将会提升！
+              </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="proDownRight_content">
+              <div class="proDownRight_contentOne">可申请额度</div>
+              <div class="proDownRight_contentTwo"><label>3.334.223.03</label></div>
+              <div class="proDownRight_contentThree">
+              <span>
+                若贵企业完善财务报表、资金流水、税控盘发票提交，可申请额度将会提升！
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-default" (click)="quickUp()">马上升级</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="quickUpHide" style="width: 80%;margin: 10px;">
+    <div style="font-size: 18px;letter-spacing: 1.28px;padding: 20px 0;color: #3C494E">评级数据提交<span style="margin-left: 20px;font-size: 15px;">(物银通为您提供以下数据提交项，请根据企业自身需要进行提交)</span></div>
+    <div class="pannel-raidus activeBg marginTop" style="height: 138px;padding: 20px 30px;">
+      <div style="height: 32px;line-height: 22px;padding: 5px 10px;width: 66%;background: #ECF6FD;border: 1px solid #D2EAFB;border-radius: 6px;">
+        <span>必填</span><img src="../../assets/img/corp/tishi.png" style="margin: 0 10px;"><span>实际控制人征信授权书为必填项，只有提交征信授权书才能匹配产品</span>
+      </div>
+      <div style="padding: 5px 10px;height: 60px; line-height: 60px" class="form-inline top-toolbar">
+        <img src="../../assets/img/corp/zhengxinshouquanshu.png"><span style="font-size: 15px;margin: 0 20px;">实际控制人征信授权书</span>
+        <span style="font-size: 15px;color: #9a9a9a"><img src="../../assets/img/corp/tijiaowanzheng.png">审核通过</span>
+        <button style="float: right" class="btn btn-primary" (click)="letterCredit()">去提交</button>
+      </div>
+    </div>
+    <div style="height: 289px;margin-top: 20px;padding: 20px 30px;" class="pannel-raidus activeBg marginTop">
+      <div style="height: 32px;line-height: 22px;padding: 5px 10px;width: 66%;background: #ECF6FD;border: 1px solid #D2EAFB;border-radius: 6px;">
+        <img src="../../assets/img/corp/tishi.png" style="margin-right: 10px;"><span>实际控制人征信授权书为必填项，只有提交征信授权书才能匹配产品</span>
+      </div>
+      <div class="pannel-content" style="margin: 20px 0 0 0; padding: 10px;">
+        <ul>
+          <li>
+            <img src="../../assets/img/corp/caiwubaobiao.png">
+            <label style="width: 20%">财务报表</label>
+            <span style="width: 10%"><img src="../../assets/img/corp/tijiaobuwanhzneg.png">提交不完整</span>
+            <button class="btn btn-primary" style="float: right;margin-top: 10px" (click)="submitOne()">继续提交</button>
+          </li>
+          <li>
+            <img src="../../assets/img/corp/zijinliushui.png">
+            <label style="width: 20%">资金流水</label>
+            <span style="width: 10%"><img src="../../assets/img/corp/tijiaowanzheng.png">提交完整</span>
+            <button class="btn btn-primary" style="float: right;margin-top: 10px" (click)="submitTwo()">去提交</button>
+          </li>
+          <li>
+            <img src="../../assets/img/corp/shuikongpanfapiao.png">
+            <label style="width: 20%">税控盘发票</label>
+            <span style="width: 10%"><img src="../../assets/img/corp/weirenzheng.png">未提交</span>
+            <button class="btn btn-primary" style="float: right;margin-top: 10px" (click)="submitThree()">去提交</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

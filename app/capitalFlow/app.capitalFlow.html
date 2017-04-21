@@ -1,0 +1,88 @@
+<div class="content-header-title" style="font-size: 20px;">资金流水</div>
+<div class="content-main" *ngIf="capitalFlowList">
+<!--  <button class="btn btn-default" (click)="toBack()">返回</button>-->
+  <div style="padding: 20px; background:#fff;" class="borderLink">
+    <a href="download/waybillTemplate.csv" target="_blank" class="btn btn-primary" style="float: left">导入模板下载</a>
+    <div style="margin-left: 120px;padding-left: 20px; height: 35px;line-height: 35px; width:320px;background: #FFFAD8;border-radius: 4px;">此模板用于导入资金日常导入操作</div>
+  </div>
+
+  <div style="height: 50px;line-height: 50px;background: #fff;border: 0.5px solid #9b9b9b;margin-top:20px;">
+    <span style="margin-left: 20px">您可以直接将文件拖曳到此处</span>
+    <button class="btn btn-primary" (click)="evtWriteContract()">导入文件</button>
+  </div>
+  <div class="productmanage" style="background: #fff;border: 0.5px solid #9b9b9b;margin-top:20px;">
+    <div class="row">
+      <div class="col-md-12">
+        <uiList [list]="productList" [listContext]="this"></uiList>
+        <div uiPager [pager]="listPager"></div>
+      </div>
+    </div>
+  </div>
+  <modal #myModal>
+    <modal-header [show-close]="true">
+      <h4 class="modal-title">I'm a modal!</h4>
+    </modal-header>
+    <modal-body>
+      <p>企业尚未认证，请认证！</p>
+      <section uiUploader #myUploader [uploader]="uploader">
+
+      </section>
+    </modal-body>
+    <modal-footer [show-default-buttons]="false">
+      <button class="btn btn-success" (click)="myUploader.fileListSubmit()">上传所有</button>
+      <button class="btn btn-primary">确定上传</button>
+    </modal-footer>
+  </modal>
+</div>
+
+<div class="content-main" *ngIf="capitalFlowView">
+  <button class="btn btn-default" (click)="toBack()">返回</button>
+  <div class="productmanage borderLink"  style="padding: 20px; background:#fff;">
+    <div class="form-inline">
+      <div class="input-group">
+        <div class="input-group-addon">账户名称</div>
+        <input text="text" class="form-control" [(ngModel)]="filterText">
+      </div>
+      <div class="input-group">
+        <div class="input-group-addon">账号</div>
+        <input text="text" class="form-control" [(ngModel)]="filterText">
+      </div>
+      <button class="btn btn-primary" (click)="search()">提交</button>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;font-size:18px;">网银监管账户截图上传：</div>
+  <div style="height: 50px;line-height: 50px;background: #fff;border: 0.5px solid #9b9b9b;">
+    <span style="margin-left: 20px">您可以直接将文件拖曳到此处</span>
+    <button class="btn btn-primary" (click)="evtWriteContract()">导入文件</button>
+  </div>
+  <div class="productmanage" style="background: #fff;border: 0.5px solid #9b9b9b;margin-top:20px;">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="ui_table ui_table_">
+          <thead class="ui_thead">
+          <tr>
+            <th>交易日期</th>
+            <th>借方金额</th>
+            <th>贷方金额</th>
+            <th>余额</th>
+            <th>付款人名字</th>
+            <th>数据状态</th>
+          </tr>
+          </thead>
+          <tbody class="ui_tbody">
+          <tr *ngFor="let d of capitalFlowListData">
+            <td>{{d.loanAmount}}</td>
+            <td>{{d.loanDate}}</td>
+            <td>{{d.loanRate}}</td>
+            <td>{{d.productName}}</td>
+            <td>{{d.publishTime}}</td>
+            <td>{{d.productType}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div uiPager [pager]="listPager"></div>
+      </div>
+    </div>
+  </div>
+</div>

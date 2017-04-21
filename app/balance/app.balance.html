@@ -1,0 +1,786 @@
+<div>
+  <form #myForm="ngForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+    <div class="activeBgs" style="padding: 10px 40px;">
+      <div class="perfectTop">资产负债表2016年6月</div>
+      <div class="pannel-raidus perfectTopBg marginTop10">
+        <span>提醒：由于系统有报表间的勾稽关系验证，建议先提交利润表，再提交资产负债表。</span>
+      </div>
+      <div class="perfectTop marginTop10" style="text-align: center;" (click)="test()">资产负债表</div>
+      <div class="text-right" style="margin-top: -20px;margin-bottom: 5px">
+        <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">提交</button>
+        <button class="btn btn-default" (click)="returnBackList()">返回</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="excel-table">
+            <tbody class="excel-header">
+            <tr>
+              <td class="td-w5">
+                <span>编制单位：</span>
+                <span>{{companyName}}</span>
+              </td>
+              <td class="td-w3">
+              </td>
+              <td class="td-time td-w4" colspan="2">
+                报告日期：
+              </td>
+              <td class="td-w5 td-warp-01 ">
+                <input class="td-ip-11" type="date">
+              </td>
+              <td class="td-w3"></td>
+              <td></td>
+              <td class="td-company">单位：元</td>
+            </tr>
+            </tbody>
+            <tbody class="b2">
+            <tr>
+              <td>项目</td>
+              <td>附注</td>
+              <td>期末余额</td>
+              <td>年初余额</td>
+              <td>项目</td>
+              <td>附注</td>
+              <td>期末余额</td>
+              <td>年初余额</td>
+            </tr>
+            </tbody>
+            <tbody class="b-title">
+            <tr>
+              <td class="td-w1">流动资产：</td>
+              <td class="td-w2"></td>
+              <td></td>
+              <td></td>
+              <td class="td-w1">流动负债：</td>
+              <td class="td-w2"></td>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr>
+              <td>货币资金</td>
+              <td>1</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money001" name="money001"  #money001="ngModel" type="text" class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" [ngClass]="eooerName ==currentAssetsEnd.param.money001?'adddclass':''" id="money001">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money101" name="money101" #money101="ngModel" type="text" class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money101?'adddclass':''" id="money101">
+              </td>
+              <td>短期借款</td>
+              <td>36</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money401"  name="money401"  #money401="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money401?'adddclass':''" id="money401">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money501"  name="money501"  #money501="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money501?'adddclass':''" id="money501">
+              </td>
+            </tr>
+            <tr>
+              <td>交易性金融资产</td>
+              <td>2</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money002"  name="money002"  #money002="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money002?'adddclass':''" id="money002">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money102"  name="money102"  #money102="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money102?'adddclass':''" id="money102">
+              </td>
+              <td>交易性金融负债</td>
+              <td>37</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money402"  name="money402"  #money402="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money402?'adddclass':''" id="money402">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money502"  name="money502"  #money502="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money502?'adddclass':''" id="money502">
+              </td>
+            </tr>
+
+
+            <tr>
+              <td> 应收票据</td>
+              <td>3</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money003"  name="money003"  #money003="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money003?'adddclass':''" id="money003">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money103"  name="money103"  #money103="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money103?'adddclass':''" id="money103">
+              </td>
+              <td> 应付票据</td>
+              <td>38</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money403"  name="money403"  #money403="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money403?'adddclass':''" id="money403">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money503"  name="money503"  #money503="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money503?'adddclass':''"  id="money503">
+              </td>
+            </tr>
+            <tr>
+              <td> 应收账款</td>
+              <td>4</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money004"  name="money004"  #money004="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money004?'adddclass':''" id="money004">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money104"  name="money104"  #money104="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money104?'adddclass':''" id="money104">
+              </td>
+              <td> 应付账款</td>
+              <td>39</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money404"  name="money404"  #money404="ngModel"
+                       type="text"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money404?'adddclass':''" id="money404">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money504"  name="money504"  #money504="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money504?'adddclass':''" id="money504">
+              </td>
+            </tr>
+            <tr>
+              <td> 预付账款</td>
+              <td>5</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money005"  name="money005"  #money005="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName == currentAssetsEnd.param.money005?'adddclass':''" id="money005">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money105"  name="money105"  #money105="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money105?'adddclass':''" id="money105">
+              </td>
+              <td> 预收账款</td>
+              <td>40</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money405"  name="money405"  #money405="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money405?'adddclass':''" id="money405">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money505"  name="money505"  #money505="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money505?'adddclass':''" id="money505">
+              </td>
+            </tr>
+            <tr>
+              <td> 应收利息</td>
+              <td>6</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money006"  name="money006"  #money006="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money006?'adddclass':''" id="money006">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money106"  name="money106"  #money106="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money106?'adddclass':''" id="money106">
+              </td>
+              <td> 应付职工薪酬</td>
+              <td>41</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money406"  name="money406"  #money406="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money406?'adddclass':''" id="money406">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money506"  name="money506"  #money506="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money506?'adddclass':''" id="money506">
+              </td>
+            </tr>
+            <tr>
+              <td> 应收股利</td>
+              <td>7</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money007"  name="money007"  #money007="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money007?'adddclass':''" id="money007">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money107"  name="money107"  #money107="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money107?'adddclass':''" id="money107">
+              </td>
+              <td> 应交税费</td>
+              <td>42</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money407"  name="money407"  #money407="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money407?'adddclass':''" id="money407">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money507"  name="money507"  #money507="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money507?'adddclass':''" id="money507">
+              </td>
+            </tr>
+            <tr>
+              <td> 其他应收款</td>
+              <td>8</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money008"  name="money008"  #money008="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money008?'adddclass':''" id="money008">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money108"  name="money108"  #money108="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money108?'adddclass':''" id="money108">
+              </td>
+              <td> 应付利息</td>
+              <td>43</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money408"  name="money408"  #money408="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money408?'adddclass':''" id="money408">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money508"  name="money508"  #money508="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money508?'adddclass':''" id="money508">
+              </td>
+            </tr>
+            <tr>
+              <td> 存货</td>
+              <td>9</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money009"  name="money009"  #money009="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money009?'adddclass':''" id="money009">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money109" name="money109"  #money109="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money109?'adddclass':''" id="money109">
+              </td>
+              <td> 应付股利</td>
+              <td>44</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money409" name="money409"  #money409="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money409?'adddclass':''" id="money409">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money509" name="money509"  #money509="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money509?'adddclass':''" id="money509">
+              </td>
+            </tr>
+            <tr>
+              <td> 划分为持有待售的资产</td>
+              <td>10</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money010" name="money010"  #money010="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money010?'adddclass':''" id="money010">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money110" name="money110"  #money110="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money110?'adddclass':''" id="money110">
+              </td>
+              <td> 其他应付款</td>
+              <td>45</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money410" name="money410"  #money410="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money410?'adddclass':''" id="money410">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money510" name="money510"  #money510="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money510?'adddclass':''" id="money510">
+              </td>
+            </tr>
+            <tr>
+              <td> 一年内到期的非流动资产</td>
+              <td>11</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money011" name="money011"  #money011="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money011?'adddclass':''" id="money011">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money111" name="money111"  #money111="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money111?'adddclass':''" id="money111">
+              </td>
+              <td> 一年内到期的非流动负债</td>
+              <td>46</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money411" name="money411"  #money411="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money411?'adddclass':''" id="money411">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money511" name="money511"  #money511="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money511?'adddclass':''" id="money511">
+              </td>
+            </tr>
+            <tr>
+              <td> 待处理财产损益</td>
+              <td>12</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money012" name="money012"  #money012="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money012?'adddclass':''" id="money012">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money112" name="money112"  #money112="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money112?'adddclass':''" id="money112">
+              </td>
+              <td> 其他流动负债</td>
+              <td>47</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="flowloadEnd.param.money412" name="money412"  #money412="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==flowloadEnd.param.money412?'adddclass':''" id="money412">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="otherFlowloadBegin.param.money512" name="money512"  #money512="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==otherFlowloadBegin.param.money512?'adddclass':''" id="money512">
+              </td>
+            </tr>
+            <tr>
+              <td> 其他流动资产</td>
+              <td>13</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsEnd.param.money013" name="money013"  #money013="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsEnd.param.money013?'adddclass':''" id="money013">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="currentAssetsBegin.param.money113" name="money113"  #money113="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==currentAssetsBegin.param.money113?'adddclass':''" id="money113">
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+
+            <tbody class="b-total">
+            <tr>
+              <td class="td-title">流动资产合计</td>
+              <td></td>
+              <td title="{{currentAssetsEnd.money014}}">{{currentAssetsEnd.money014}}</td>
+              <td title="{{currentAssetsBegin.money114}}">{{currentAssetsBegin.money114}}</td>
+              <td class="td-title">流动负债合计</td>
+              <td></td>
+              <td title="{{flowloadEnd.money413}}">{{flowloadEnd.money413}}</td>
+              <td title="{{otherFlowloadBegin.money513}}">{{otherFlowloadBegin.money513}}</td>
+            </tr>
+            </tbody>
+            <tbody class="b-title">
+            <tr>
+              <td>非流动资产：</td>
+              <td>15</td>
+              <td></td>
+              <td></td>
+              <td>非流动负债：</td>
+              <td>49</td>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr>
+              <td> 可供出售金融资产</td>
+              <td>16</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money201" name="money201"  #money201="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money201?'adddclass':''" id="money201">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money301" name="money301"  #money301="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money301?'adddclass':''" id="money301">
+              </td>
+              <td> 长期借款</td>
+              <td>50</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndEnd.param.money601" name="money601"  #money601="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndEnd.param.money601?'adddclass':''" id="money601">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndStart.param.money701" name="money701"  #money701="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndStart.param.money701?'adddclass':''" id="money701">
+              </td>
+            </tr>
+
+            <tr>
+              <td> 持有至到期投资</td>
+              <td>17</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money202" name="money202"  #money202="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money202?'adddclass':''" id="money202">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money302" name="money302"  #money302="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money302?'adddclass':''" id="money302">
+              </td>
+              <td>应付债券</td>
+              <td>51</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndEnd.param.money602" name="money602"  #money602="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndEnd.param.money602?'adddclass':''" id="money602">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndStart.param.money702" name="money702"  #money702="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndStart.param.money702?'adddclass':''" id="money702">
+              </td>
+            </tr>
+            <tr>
+              <td>长期应收款</td>
+              <td>18</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money203" name="money203"  #money203="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money203?'adddclass':''" id="money203">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money303" name="money303"  #money303="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money303?'adddclass':''" id="money303">
+              </td>
+              <td>长期应付款</td>
+              <td>52</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndEnd.param.money603" name="money603"  #money603="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndEnd.param.money603?'adddclass':''" id="money603">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndStart.param.money703" name="money703"  #money703="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndStart.param.money703?'adddclass':''" id="money703">
+              </td>
+            </tr>
+            <tr>
+              <td>长期股权投资</td>
+              <td>19</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money204" name="money204"  #money204="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money204?'adddclass':''" id="money204">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money304" name="money304"  #money304="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money304?'adddclass':''" id="money304">
+              </td>
+              <td>专项应付款</td>
+              <td>53</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndEnd.param.money604" name="money604"  #money604="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndEnd.param.money604?'adddclass':''" id="money604">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndStart.param.money704" name="money704"  #money704="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndStart.param.money704?'adddclass':''" id="money704">
+              </td>
+            </tr>
+            <tr>
+              <td>投资性房地产</td>
+              <td>20</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money205" name="money205"  #money205="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money205?'adddclass':''" id="money205">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money305" name="money305"  #money305="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money305?'adddclass':''" id="money305">
+              </td>
+              <td>预计负债</td>
+              <td>54</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndEnd.param.money605" name="money605"  #money605="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndEnd.param.money605?'adddclass':''" id="money605">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndStart.param.money705" name="money705"  #money705="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndStart.param.money705?'adddclass':''" id="money705">
+              </td>
+            </tr>
+            <tr>
+              <td>固定资产</td>
+              <td>21</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money206" name="money206"  #money206="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money206?'adddclass':''" id="money206">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money306" name="money306"  #money306="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money306?'adddclass':''" id="money306">
+              </td>
+              <td>递延所得税负债</td>
+              <td>55</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndEnd.param.money606" name="money606"  #money606="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndEnd.param.money606?'adddclass':''" id="money606">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndStart.param.money706" name="money706"  #money706="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndStart.param.money706?'adddclass':''" id="money706">
+              </td>
+            </tr>
+            <tr>
+              <td>在建工程</td>
+              <td>22</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money207" name="money207"  #money207="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money207?'adddclass':''" id="money207">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money307" name="money307"  #money307="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money307?'adddclass':''" id="money307">
+              </td>
+              <td>其他非流动负债</td>
+              <td>56</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndEnd.param.money607" name="money607"  #money607="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndEnd.param.money607?'adddclass':''" id="money607">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="unFlowloadEndStart.param.money707" name="money707"  #money707="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==unFlowloadEndStart.param.money707?'adddclass':''" id="money707">
+              </td>
+            </tr>
+
+
+            <tr>
+              <td> 工程物资</td>
+              <td>23</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money208" name="money208"  #money208="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money208?'adddclass':''" id="money208">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money308" name="money308"  #money308="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money308?'adddclass':''" id="money308">
+              </td>
+              <td class="td-title ">非流动负债合计</td>
+              <td ></td>
+              <td   title="{{unFlowloadEndEnd.money608 }}">
+                {{unFlowloadEndEnd.money608 }}
+              </td>
+              <td  title=" {{unFlowloadEndStart.money708 }}">
+                {{unFlowloadEndStart.money708 }}
+              </td>
+            </tr>
+
+            <tr>
+              <td>固定资产清理</td>
+              <td>24</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money209" name="money209"  #money209="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money209?'adddclass':''" id="money209">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money309" name="money309"  #money309="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money309?'adddclass':''" id="money309">
+              </td>
+              <td class="td-title ">负债合计</td>
+              <td ></td>
+              <td  title="{{ money609 }}">
+                {{ money609 }}
+              </td>
+              <td  title="{{money709}}">
+                {{money709}}
+              </td>
+            </tr>
+            <tr>
+              <td>生产性生物资产</td>
+              <td>25</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money210" name="money210"  #money210="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money210?'adddclass':''" id="money210">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money310" name="money310"  #money310="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money310?'adddclass':''" id="money310">
+              </td>
+              <td class="b-td-title">所有者权益（或股东权益）：</td>
+              <td class="b-td-title">59</td>
+              <td class="b-td-title"></td>
+              <td class="b-td-title"></td>
+            </tr>
+            <tr>
+              <td>油气资产</td>
+              <td>26</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money211" name="money211"  #money211="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money211?'adddclass':''" id="money211">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money311" name="money311"  #money311="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money311?'adddclass':''" id="money311">
+              </td>
+              <td>实收资本（或股本）</td>
+              <td>60</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestEnd.param.money801" name="money801"  #money801="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestEnd.param.money801?'adddclass':''" id="money801">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestBegin.param.money901" name="money901"  #money901="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestBegin.param.money901?'adddclass':''" id="money901">
+              </td>
+            </tr>
+            <tr>
+              <td>无形资产</td>
+              <td>27</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money212" name="money212"  #money212="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money212?'adddclass':''" id="money212">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money312" name="money312"  #money312="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money312?'adddclass':''" id="money312">
+              </td>
+              <td>资本公积</td>
+              <td>61</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestEnd.param.money802" name="money802"  #money802="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestEnd.param.money802?'adddclass':''" id="money802">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestBegin.param.money902" name="money902"  #money902="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestBegin.param.money902?'adddclass':''" id="money902">
+              </td>
+            </tr>
+            <tr>
+              <td>开发支出</td>
+              <td>28</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money213" name="money213"  #money213="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money213?'adddclass':''" id="money213">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money313" name="money313"  #money313="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money313?'adddclass':''" id="money313">
+              </td>
+              <td>专项储备</td>
+              <td>62</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestEnd.param.money803" name="money803"  #money803="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestEnd.param.money803?'adddclass':''" id="money803">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestBegin.param.money903" name="money903"  #money903="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestBegin.param.money903?'adddclass':''" id="money903">
+              </td>
+            </tr>
+            <tr>
+              <td>商誉</td>
+              <td>29</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money214" name="money214"  #money214="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money214?'adddclass':''" id="money214">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money314" name="money314"  #money314="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money314?'adddclass':''" id="money314">
+              </td>
+              <td>盈余公积</td>
+              <td>63</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestEnd.param.money804" name="money804"  #money804="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestEnd.param.money804?'adddclass':''" id="money804">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestBegin.param.money904" name="money904"  #money904="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestBegin.param.money904?'adddclass':''" id="money904">
+              </td>
+            </tr>
+            <tr>
+              <td>长期待摊费用</td>
+              <td>30</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money215" name="money215"  #money215="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money215?'adddclass':''" id="money215">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money315" name="money315"  #money315="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money315?'adddclass':''" id="money315">
+              </td>
+              <td>未分配利润</td>
+              <td>64</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestEnd.param.money805" name="money805"  #money805="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestEnd.param.money805?'adddclass':''" id="money805">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestBegin.param.money905" name="money905"  #money905="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestBegin.param.money905?'adddclass':''" id="money905">
+              </td>
+            </tr>
+            <tr>
+              <td>递延所得税资产</td>
+              <td>31</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money216" name="money216"  #money216="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money216?'adddclass':''" id="money216">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money316" name="money316"  #money316="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money316?'adddclass':''" id="money316">
+              </td>
+              <td>外币报表折算差额</td>
+              <td>65</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestEnd.param.money806" name="money806"  #money806="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestEnd.param.money806?'adddclass':''" id="money806">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestBegin.param.money906" name="money906"  #money906="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestBegin.param.money906?'adddclass':''" id="money906">
+              </td>
+            </tr>
+
+            <tr>
+              <td>其他非流动资产</td>
+              <td>32</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsEnd.param.money217" name="money217"  #money217="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsEnd.param.money217?'adddclass':''" id="money217">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="uncurrentAssetsBegin.param.money317" name="money317"  #money317="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==uncurrentAssetsBegin.param.money317?'adddclass':''" id="money317">
+              </td>
+              <td>归属于母公司的所有者权益</td>
+              <td>66</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestEnd.param.money807" name="money807"  #money807="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestEnd.param.money807?'adddclass':''" id="money807">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestBegin.param.money907" name="money907"  #money907="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestBegin.param.money907?'adddclass':''" id="money907">
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>少数股东权益</td>
+              <td>67</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestEnd.param.money808" name="money808"  #money808="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestEnd.param.money808?'adddclass':''" id="money808">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="shareholderInterestBegin.param.money908" name="money908"  #money908="ngModel"
+                       type="text" pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$" class="td-ip-11" (change)="onChange()" [ngClass]="eooerName ==shareholderInterestBegin.param.money908?'adddclass':''" id="money908">
+              </td>
+            </tr>
+            </tbody>
+            <tbody class="b-total">
+            <tr>
+              <td class="td-title">非流动资产合计</td>
+              <td></td>
+              <td title="{{ uncurrentAssetsEnd.money218 }}">{{ uncurrentAssetsEnd.money218 }}</td>
+              <td title="{{ uncurrentAssetsBegin.money318 }}">{{ uncurrentAssetsBegin.money318 }}</td>
+              <td class="td-title">股东（或所有者）权益合计</td>
+              <td></td>
+              <td title="{{ shareholderInterestEnd.money809 }}">{{ shareholderInterestEnd.money809 }}</td>
+              <td title="{{ shareholderInterestBegin.money909 }}">{{ shareholderInterestBegin.money909 }}</td>
+            </tr>
+            </tbody>
+            <tbody class="b-total">
+            <tr>
+              <td class="td-title">资产总计</td>
+              <td></td>
+              <td title="{{ money219 }}">{{ money219 }}</td>
+              <td title="{{ money319 }}">{{ money319 }}</td>
+              <td class="td-title">负债和股东（或所有者）权益总计</td>
+              <td></td>
+              <td title="{{ money810 }}">{{ money810 }}</td>
+              <td title="{{ money910 }}">{{ money910 }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

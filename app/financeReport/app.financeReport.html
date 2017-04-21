@@ -1,0 +1,91 @@
+<div style="width: 90%">
+  <div style="font-size: 20px; margin: 20px;">财务报告</div>
+  <div style="height: 200px; background: #fff;" class="pannel-raidus borderLink">
+    <div style="width: 600px;margin: 30px auto;">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <button class="btn tabButton" [ngClass]="balanceBtn" (click)="balance()">资产负债表</button>
+          </div>
+          <div class="col-md-4">
+            <button class="btn tabButton" [ngClass]="incomeBtn" (click)="income()">净利润表</button>
+          </div>
+          <div class="col-md-4">
+            <button class="btn tabButton" [ngClass]="cashFlowBtn" (click)="cashFlow()">现金流量表</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="width: 950px;margin:30px auto;">
+      <div class="text-center" style="float:left;margin: 5px 15px 5px 5px; font-size: 16px">
+        缺失月份
+      </div>
+      <div style="width: 780px;float: left; font-size: 14px">
+        <div class="financeReportRadio" *ngFor="let d of loserRadio; index as i"><input type="radio" id="{{i}}" name="checkTime">{{d.time}}</div>
+      </div>
+      <div style="float:left;margin-top: 32px">
+        <a class="btn btn-link" (click)="evtWriteContract()">查看更多</a>
+      </div>
+      <div style="margin: 10px 0 0 80px;">
+        <button class="btn btn-default">缺失月份提交</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 680px;margin: 30px auto 0;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-6 text-left">
+          填报日期
+        </div>
+        <div class="col-md-6 text-right" style="padding-right: 50px">
+          操作
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background-color: #fff;" class="pannel-raidus borderLink">
+    <div style="width: 760px;margin: 0 auto;">
+      <div class="pannel-content" style="padding: 10px;">
+        <ul>
+          <li *ngFor="let d of loserRadio; index as i">
+            <label style="width: 20%">{{d.time}}</label>
+            <button class="btn btn-default" style="float: right;margin-top: 10px" (click)="submitDel(d.status)">删除</button>
+            <button class="btn btn-primary" style="float: right;margin-top: 10px;margin-right: 5px" (click)="submitView(d.status)">详情</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<modal #myModal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">查看更多缺失月份</h4>
+  </modal-header>
+  <modal-body>
+    <div style="width: 600px;margin: 10px auto;min-height: 150px">
+      <div class="financeReportRadioModel"  *ngFor="let d of loserRadio; index as i"><input type="radio" id="{{i}}" name="checkTime">2017年2月</div>
+    </div>
+    <div style="margin: 10px;">
+      <button class="btn btn-primary">缺失月份提交</button>
+    </div>
+  </modal-body>
+  <modal-footer [show-default-buttons]="true">
+  </modal-footer>
+</modal>
+
+<modal #myModalDel style="margin-top: 200px">
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">您确定要删除该月份记录吗</h4>
+  </modal-header>
+  <modal-body>
+    <div style="width: 600px;margin: 10px auto;">
+      该记录会影响您的额度批复，请慎重考虑。
+    </div>
+    <div style="margin: 50px 10px;">
+      <button class="btn btn-primary">确定</button>
+      <button class="btn btn-default">取消</button>
+    </div>
+  </modal-body>
+</modal>

@@ -1,0 +1,18 @@
+.msection {
+  width: 60rem;
+  margin: 0 auto; }
+
+.sec404 {
+  color: #f8b700;
+  text-align: center; }
+  .sec404 .e1 {
+    font-size: 9.5rem; }
+  .sec404 .e2 {
+    font-size: 4.5rem; }
+
+a {
+  color: rgba(0, 0, 0, 0.7); }
+  a:visited {
+    color: inherit; }
+
+/*# sourceMappingURL=base.css.map */

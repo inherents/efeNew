@@ -1,0 +1,92 @@
+<div>
+  <div class="pannel_apply" style="height: 90px;padding: 20px;">
+    <div>
+      <div class="corpRz" style="height:55px;text-align:center;border-right:1px solid #cccccc ">
+        <label>3.334.223.03</label>
+        <div style="font-size: 14px;">可申请额度</div>
+      </div>
+      <div class="corpRz" style="height:55px;text-align:center;border-right:1px solid #cccccc ">
+        <label>3.334.223.03</label>
+        <div style="font-size: 14px;">已批复额度</div>
+      </div>
+      <div class="corpRz" style="height:55px;text-align:center;">
+        <label>3.334.223.03</label>
+        <div style="font-size: 14px;">剩余额度</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pannel_apply" style="margin-top: 25px;">
+    <div style="width: 100%;height: 45px;background: #fafafa">
+      <div class="apply_tab1" [ngClass]="currentClasses" (click)="doneApply(0)">可申请司机</div>
+      <div class="apply_tab2" [ngClass]="currentClass" (click)="doneApply(1)">已申请司机</div>
+      <button class="btn btn-primary" style="float: right;margin: 5px 20px 5px 5px;">查询</button>
+      <input class="form-control" style="float: right;width: 120px;margin-top: 5px;">
+    </div>
+    <div class="pannel-content">
+      <div class="text-center" style="padding: 10px;" *ngIf="showBtnApply">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-4"><button class="btn" [ngClass]="applyClass1" (click)="applyStatus(0)">申请中</button></div>
+            <div class="col-md-4"><button class="btn" [ngClass]="applyClass2" (click)="applyStatus(1)">已批复</button></div>
+            <div class="col-md-4"><button class="btn" [ngClass]="applyClass3" (click)="applyStatus(2)">已拒绝</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="row"  *ngIf="applyIng">
+        <div class="col-md-12">
+          <table class="ui_table ui_table_">
+            <tbody class="ui_tbody">
+            <tr *ngFor="let d of quickApplyData">
+              <td width="55px"><div style="height: 30px;width: 30px;-webkit-border-radius: 15px;-moz-border-radius: 15px;border-radius: 15px;" [ngClass]="d.bgFirst">{{d.driverNameFirst}}</div></td>
+              <td class="text-left">{{d.driverName}}</td>
+              <td>{{d.phone}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><button class="btn btn-primary" (click)="applyProduct()">完善报告</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="applyDone">
+        <div class="col-md-12">
+          <table class="ui_table ui_table_">
+            <tbody class="ui_tbody">
+            <tr *ngFor="let d of quickApplyData">
+              <td width="55px"><div style="height: 30px;width: 30px;-webkit-border-radius: 15px;-moz-border-radius: 15px;border-radius: 15px;" [ngClass]="d.bgFirst">{{d.driverNameFirst}}</div></td>
+              <td class="text-left">{{d.driverName}}</td>
+              <td style="color: #9B9B9B;font-size: 14px">{{d.phone}}</td>
+              <td>批复金额</td>
+              <td style="color: #9B9B9B;font-size: 14px">{{d.replyMoney}}</td>
+              <td>授信到期日</td>
+              <td style="color: #9B9B9B;font-size: 14px">{{d.time}}</td>
+              <td><button class="btn btn-primary" (click)="applyProduct()">完善报告</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="applyRefuse">
+        <div class="col-md-12">
+          <table class="ui_table ui_table_">
+            <tbody class="ui_tbody">
+            <tr *ngFor="let d of quickApplyData">
+              <td width="55px"><div style="height: 30px;width: 30px;-webkit-border-radius: 15px;-moz-border-radius: 15px;border-radius: 15px;" [ngClass]="d.bgFirst">{{d.driverNameFirst}}</div></td>
+              <td class="text-left">{{d.driverName}}</td>
+              <td style="color: #9B9B9B;font-size: 14px">{{d.phone}}</td>
+              <td></td>
+              <td>拒绝原因</td>
+              <td style="color: #9B9B9B;font-size: 14px" colspan="3">{{d.tips}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

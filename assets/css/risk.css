@@ -1,0 +1,223 @@
+.risk_ctrl{
+
+}
+
+.risk_ctrl ul{
+    padding: 0;
+    list-style: none;
+}
+
+.risk_ctrl .ul_tab{
+    display: flex;
+}
+.risk_ctrl .ul_tab li{
+    margin-right: 6.67em;
+    cursor: pointer;
+}
+.risk_ctrl .ul_tab li  div{
+    text-align: center;
+    height: 2em;
+    line-height: 2em;
+}
+
+
+.risk_ctrl .ul_tab li .circle{
+    width: 4.67em;
+    height: 4.67em;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 4.67em;
+    margin: 0 auto;
+    color: #fff;
+}
+.risk_ctrl .ul_tab>li.cur .d{
+    font-weight: bold;
+}
+
+.risk_ctrl .ul_tab li .pool{
+    background-color: #FF6600;
+}
+.risk_ctrl .ul_tab li .busi{
+    background-color: #669900;
+}
+.risk_ctrl .ul_tab li .credit{
+    background-color: #169BD5;
+}
+.risk_ctrl .ul_tab li .summary{
+    background-color: #FF0000;
+}
+.risk_ctrl .ul_tab li .pledge{
+    background-color: #6633cc;
+}
+.risk_ctrl .ul_tab li .finance{
+    background-color: #9999ff;
+}
+.risk_ctrl .ul_tab li .refund{
+    background-color: #cccccc;
+}
+
+.risk_ctrl .tab_busi
+{
+    display: flex;
+    padding: 0px;
+}
+
+.risk_ctrl .tab_busi li{
+    margin-right: 1em;
+    cursor: pointer;
+    height: 3em;
+    line-height: 3em;
+    padding: 0 1em;
+    border:1px solid #e8e8e8;
+}
+
+.risk_ctrl .tab_busi li.cur{
+    background-color:#669900;
+    color: #ffffff
+}
+
+.risk_ctrl  td .red{
+    color: #ff0000;
+}
+.risk_ctrl  td .orange{
+    color: #FFA500;
+}
+.risk_ctrl  td .yellow{
+    color: #FFFF00;
+}
+.risk_ctrl  td .blue{
+    color: #0000FF;
+}
+.risk_ctrl  td .green{
+    color: #008000;
+}
+
+.risk_ctrl .ui_table .c_n
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.risk_ctrl .ui_table_summary .r_d{
+    position: absolute;
+    min-width:300px;
+    left: -310px;
+    background-color: #e8e8e8;
+    top:0;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 5px 5px #293038;
+}
+.risk_ctrl .ui_table_summary .s_r
+{
+    position: relative;
+    cursor: pointer;
+}
+
+.risk_ctrl .ui_table_summary .r_d p{
+  margin: 0;
+    text-align: right;
+    color: #333;
+}
+.risk_ctrl .ui_table_summary .r_d p span{
+    margin-right: 5px;
+}
+.risk_ctrl .ui_table_summary  .ui_tbody .ui_td:nth-child(4)
+{
+    overflow: visible;
+}
+.modal .modal-ywl
+{
+    width: auto;
+    min-width: 600px;
+}
+
+.balance_sheet td{
+    padding:5px 10px;
+    border: 1px solid #ddd;
+}
+.dataaudit_detail_ctrl .ul li:nth-child(1)
+{
+    border: 1px solid #ddd;
+}
+.dataaudit_detail_ctrl .ul .d_l{
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    border-top: 0;
+}
+.dataaudit_detail_ctrl .ul .d_l span{
+    color: #FF0000;
+}
+
+.dataaudit_detail_ctrl .ul .bold
+{
+    font-weight: bold;
+}
+.dataaudit_detail_ctrl .filter .cur{
+    font-weight: bold;
+}
+
+.dataaudit_detail_ctrl .filter{
+    height: 3em;
+    line-height: 3em;
+}
+
+.dataaudit_detail_ctrl .filter span{
+    cursor: pointer;
+    margin-right: 1em;
+}
+
+.credit_bill_his_ctrl .f_date{
+    height: 36px;
+    line-height:1.42857143;
+    padding: 6px;
+    border: 1px solid #ddd;
+    width: 7.08em;
+    vertical-align: middle;
+    cursor: not-allowed;
+}
+.credit_bill_his_ctrl  .row .col-sm-3{
+    width: 420px;
+}
+.dataaudit_list_ctrl .notpass{
+    color: #FF0000;
+}
+.dataaudit_list_ctrl .pass{
+    color: #008000;
+}
+
+.pay_cert_ctrl .s1{
+    color: #6633CC;
+}
+.pay_cert_ctrl .s2{
+    color: #008000;
+}
+.pay_cert_ctrl .s3{
+    color: #FF0000;
+}
+
+ .red{
+    color: #ff0000;
+}
+ .orange{
+    color: #FFA500;
+}
+.yellow{
+    color: #FFFF00;
+}
+.blue{
+    color: #0000FF;
+}
+.green{
+    color: #008000;
+}
+.risk_ctrl .ul_tab li .red{
+    background: #ff3333;
+}
+.risk_ctrl .ul_tab li .green{
+    background: #008000;
+}
+.risk_ctrl .ul_tab li .orange{
+    background: #ff6600;
+}

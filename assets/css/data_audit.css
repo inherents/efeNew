@@ -1,0 +1,11 @@
+.dataaudit_ctrl{
+
+}
+.dataaudit_ctrl .table tbody td
+{
+    border-collapse: collapse ;
+    border: 1px solid #e1e6eb;
+}
+.dataaudit_ctrl .table thead{
+    background-color: #EFEFEF;
+}

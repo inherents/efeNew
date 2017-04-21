@@ -1,0 +1,332 @@
+<div>
+  <form #myForm="ngForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+    <div class="activeBgs" style="padding: 10px 40px;">
+      <div class="pannel-raidus perfectTopBg marginTop10">
+        <span>提醒：由于系统有报表间的勾稽关系验证，建议先提交利润表，再提交资产负债表。</span>
+      </div>
+      <div class="perfectTop marginTop10" style="text-align: center;">净利润表</div>
+      <div class="text-right" style="margin-top: -20px;margin-bottom: 5px">
+        <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">提交</button>
+        <button class="btn btn-default" (click)="returnBackList()">返回</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="excel-table ">
+            <tbody class="b1  excel-header">
+            <tr>
+              <td class="td-w6">
+                <span>编制单位：</span>
+                <span>{{companyName}}</span>
+              </td>
+              <td class="td-time td-w8">
+                报告日期：
+              </td>
+              <td class="td-w5 td-warp-01 ">
+                <input class="td-ip-11" type="date">
+              </td>
+              <td class="td-company">单位：元</td>
+            </tr>
+            </tbody>
+            <tbody class="b2">
+            <tr>
+              <td class="td-w6">项目</td>
+              <td class="td-w7">附注</td>
+              <td>本月数</td>
+              <td>本年累计数</td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr>
+              <td>一、营业收入</td>
+              <td>1</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money001" name="money001"  #money001="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money001?'adddclass':''" id="money001">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money018" name="money018"  #money018="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money018?'adddclass':''" id="money018">
+              </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr>
+              <td>减：营业成本</td>
+              <td>2</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money002" name="money002"  #money002="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money002?'adddclass':''" id="money002">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money019" name="money019"  #money019="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money019?'adddclass':''" id="money019">
+              </td>
+            </tr>
+            <tr>
+              <td>营业税金及附加</td>
+              <td>3</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money003" name="money003"  #money003="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money003?'adddclass':''" id="money003">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money020" name="money020"  #money020="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money020?'adddclass':''" id="money020">
+              </td>
+            </tr>
+            <tr>
+              <td>销售费用</td>
+              <td>4</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money004" name="money004"  #money004="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money004?'adddclass':''" id="money004">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money021" name="money021"  #money021="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money021?'adddclass':''" id="money021">
+              </td>
+            </tr>
+            <tr>
+              <td>管理费用</td>
+              <td>5</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money005" name="money005"  #money005="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money005?'adddclass':''" id="money005">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money022" name="money022"  #money022="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money022?'adddclass':''" id="money022">
+              </td>
+            </tr>
+            <tr>
+              <td> 财务费用（收益以“-”号填列）</td>
+              <td>6</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money006" name="money006"  #money006="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money006?'adddclass':''" id="money006">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money023" name="money023"  #money023="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money023?'adddclass':''" id="money023">
+              </td>
+            </tr>
+            <tr>
+              <td> 资产减值损失</td>
+              <td>7</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money007" name="money007"  #money007="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money007?'adddclass':''" id="money007">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money024" name="money024"  #money024="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money018?'adddclass':''" id="money024">
+              </td>
+            </tr>
+            <tr>
+              <td>加：公允价值变动收益（损失以“-”号填列）</td>
+              <td>8</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money008" name="money008"  #money008="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money018?'adddclass':''" id="money008">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money025" name="money025"  #money025="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money018?'adddclass':''" id="money025">
+              </td>
+            </tr>
+            <tr>
+              <td> 投资收益（损失以“-”号填列）</td>
+              <td>9</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money009" name="money009"  #money009="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money018?'adddclass':''" id="money009">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money026" name="money026"  #money026="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money026?'adddclass':''" id="money026">
+              </td>
+            </tr>
+            </tbody>
+
+            <tbody class="b-title">
+            <tr>
+              <td>二、营业利润（亏损以“-”号填列）</td>
+              <td>10</td>
+              <td>{{calculParme.money010}}</td>
+              <td>{{calculParme.money027}}</td>
+            </tr>
+            </tbody>
+
+            <tbody>
+            <tr>
+              <td>加：营业外收入</td>
+              <td>11</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money011" name="money011"  #money011="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money011?'adddclass':''" id="money011">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money028" name="money028"  #money028="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money028?'adddclass':''" id="money028">
+              </td>
+            </tr>
+            <tr>
+              <td> 其中：非流动资产处置利得</td>
+              <td>12</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money012" name="money012"  #money012="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money012?'adddclass':''" id="money012">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money029" name="money029"  #money029="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money029?'adddclass':''" id="money029">
+              </td>
+            </tr>
+            <tr>
+              <td>减：营业外支出</td>
+              <td>13</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money013" name="money013"  #money013="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money013?'adddclass':''" id="money013">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money030" name="money030"  #money030="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money030?'adddclass':''" id="money030">
+              </td>
+            </tr>
+            <tr>
+              <td> 其中：非流动资产处置损失</td>
+              <td>14</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money014" name="money014"  #money014="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money014?'adddclass':''" id="money014">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money031" name="money031"  #money031="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money031?'adddclass':''" id="money031">
+              </td>
+            </tr>
+            </tbody>
+
+            <tbody class="b-title">
+            <tr>
+              <td>三、利润总额（亏损总额以“-”号填列）</td>
+              <td>15</td>
+              <td>{{calculParme.money015}}</td>
+              <td>{{calculParme.money032}}</td>
+            </tr>
+            </tbody>
+
+            <tbody>
+            <tr>
+              <td>减：所得税费用</td>
+              <td>16</td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money016" name="money016"  #money016="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money016?'adddclass':''" id="money016">
+              </td>
+              <td class="td-warp-01">
+                <input [(ngModel)]="param.money033" name="money033"  #money033="ngModel"
+                       type="text"
+                       class="td-ip-11" (change)="onChange()"
+                       pattern="^(\s*)(-?)(([1-9]\d{0,9})|([0]{1}(\.\d{1,2}))|(([1-9]\d{0,9})(\.\d{1,2}))|(\s*))(\s*)$"
+                       [ngClass]="eooerName ==param.money033?'adddclass':''" id="money033">
+              </td>
+            </tr>
+            </tbody>
+
+            <tbody class="b-title">
+            <tr>
+              <td>四、净利润（净亏损以“-”号填列）</td>
+              <td>17</td>
+              <td>{{calculParme.money017}}</td>
+              <td>{{calculParme.money034}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

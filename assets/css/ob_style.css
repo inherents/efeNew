@@ -1,0 +1,124 @@
+/* 自定义BootStrap样式*/
+
+html {
+    overflow: hidden;
+}
+
+body {
+    font-size: 12px
+}
+
+canvas {
+    background-color: #f3f3f3;
+    -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    box-shadow: 3px 3px 3px 0 #e3e3e3;
+    border: 1px solid #c3c3c3;
+    height: 100px;
+    margin: 6px 0 0 6px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei"
+}
+
+a {
+    color: #06C;
+    cursor: pointer
+}
+
+a:hover {
+    color: #039
+}
+
+label {
+    font-size: 100%
+}
+
+.nowrap {
+    white-space: nowrap
+}
+
+body{
+    background-image: url("../img/ob/bg_login.png") ;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+}
+
+.login_panel{
+    width:380px;height: 540px; margin:0 auto;background-color: #fff; border-radius: 3px;
+}
+
+.login_panel .tab ul{
+    font-size: 0px;
+    padding: 0px;
+}
+
+.login_panel .tab ul li {
+    display: inline-block;
+    font-size: 18px;
+    width: 50%;
+    text-align: center;
+    height: 56px;
+    line-height: 56px;
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+    background-color: #F5F5F5;
+   font-weight: bold;
+}
+
+.login_panel .tab ul .cur
+{
+    background-color: #ffffff;
+    border-bottom-color: #ffffff;
+    cursor:default;
+}
+
+.login_panel .content input
+{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+.login_panel .content input[type=text],
+.login_panel .content input[type=password]
+{
+    color: #333;
+    text-indent: 10px;
+}
+
+.login_panel .content input[type=submit]
+{
+    border-radius: 5px;
+    background-color: #2269D5;
+    color: #fff;
+    font-size: 20px;
+    border:0px solid;
+}
+
+.login_panel .content .line
+{
+    position: relative;
+}
+.login_panel .content .line .df{
+    position: absolute;
+   height: 50px;
+    line-height: 50px;
+    color: #999999;
+    z-index: 2;
+    left: 20px;
+    top:0;
+}
