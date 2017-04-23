@@ -29,8 +29,8 @@ We recommend [nvm](https://github.com/creationix/nvm) for managing multiple vers
 
 Clone this repo into new project folder (e.g., `my-proj`).
 ```bash
-git clone  https://github.com/angular/quickstart  my-proj
-cd my-proj
+git clone  https://github.com/inherents/efeNew  efeNew
+cd efeNew
 ```
 
 We have no intention of updating the source on `angular/quickstart`.

@@ -43,6 +43,7 @@ export class AppCompanyComponent implements OnInit  {
 
   //点击  知道了按钮
   know(){
+    this.router.navigate(['./home']);
     this.modals.close();
   }
 

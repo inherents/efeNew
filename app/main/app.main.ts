@@ -38,7 +38,8 @@ export class AppMainComponent {
   onSubmit=function(){
     var u=this.userInfo;
     let router=this.router;
-    this.loginService.login(u.name,u.pwd).then((res:any)=>{
+    router.navigate(['./home',{id:9090}]);
+    /*this.loginService.login(u.name,u.pwd).then((res:any)=>{
       if(res.flag){
         //登录成功后创建session
         let data=res.data;
@@ -49,7 +50,7 @@ export class AppMainComponent {
         router.navigate(['./home',{id:9090}]);
       }
 
-    });
+    });*/
 
   };
 

@@ -9,11 +9,7 @@ import { Directive, ElementRef, Renderer } from '@angular/core';
 
 export class loginDirective {
   custStyle:any;
-  constructor() {
-    //样式
-    this.custStyle={
-      'margin-top': "15%",
-      'overflow': 'hidden'
-    };
+  constructor(elem: ElementRef, renderer: Renderer) {
+    renderer.setElementStyle(elem.nativeElement, 'margin-top', '15%');
   }
 }
