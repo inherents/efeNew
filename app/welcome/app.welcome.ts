@@ -3,7 +3,7 @@ import {ActivatedRoute,Params,Router} from '@angular/router';
 import {AppPermService} from "../appService/permService";
 import {AppSessionUtil} from "../appUtil/_base";
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
-import  * as echarts from '../../node_modules/echarts/lib/echarts.js';
+/*import  * as echarts from '../../node_modules/echarts/lib/echarts.js';*/
 
 let templateUrl='app/welcome/app.welcome.html';
 
@@ -220,9 +220,9 @@ export class AppWelcomeComponent {
         }
       ]
     };
-    // console.log(document.querySelector('#chartc'));
-   // var charts=echarts.init(document.querySelector('#chartc'));
-   //  charts.setOption(option);
+/*     console.log(document.querySelector('#chartc'));
+    var charts=echarts.init(document.querySelector('#chartc'));
+     charts.setOption(option);*/
   }
 
   evtWriteContract(){
